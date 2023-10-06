@@ -1,0 +1,29 @@
+Mode: dev
+
+Cors:
+  Enabled: false
+  AllowOrigins: ["*"]
+  AllowHeaders: ["*"]
+  AllowMethods: ["*"]
+  ExposeHeaders: ["*"]
+  AllowCredentials: true
+
+Log:
+  ServiceName: "signaling-server"
+  Level: "debug"
+  Mode: "file"
+
+Telemetry:
+  Disabled: false
+  Name: "signaling-server"
+  Batcher: "jaeger"
+  Sampler: 1.0
+  Endpoint: "http://172.88.26.63:14268/api/traces"
+
+WebSocket:
+  ListenOn: "0.0.0.0:31134"
+  IpWhitelist:
+    Enabled: true
+    IpList: []
+    File: "etc/ip_whitelist.txt"
+  CallTimeout: 100
